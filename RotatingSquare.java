@@ -37,7 +37,7 @@ public class RotatingSquare {
                 for (int x = 0; x < Constants.SCREEN_WIDTH; x++) {
                     if (squareContains((double)x, y * Constants.Y_STRETCH)) {
                         if (debug) continue;
-                        screen.append('@');
+                        screen.append('■');
                     } else {
                         if (debug) continue;
                         screen.append(' ');
