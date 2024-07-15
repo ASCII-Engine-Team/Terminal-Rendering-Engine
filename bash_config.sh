@@ -10,7 +10,8 @@ export _already_run=1
 alias config_bash=". $base_dir/bash_config.sh"
 export bash_config="$base_dir/bash_config.sh"
 
-alias run="javac engine/Run.java; java engine.Run"
+alias run="javac engine/Run.java; java engine.Run false"
+alias debug="javac engine/Run.java; java engine.Run true"
 
 # variable that stores classpath
 export _temp_CLASSPATH=".:$base_dir/libs"
