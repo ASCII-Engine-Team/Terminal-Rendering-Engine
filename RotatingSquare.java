@@ -1,9 +1,11 @@
+import engine.*;
+
 import static java.util.concurrent.TimeUnit.*;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledFuture;
 
-public class RotatingSquare {
+class RotatingSquare {
 	static double squareCenterX;
     static double squareCenterY;
     static double circumRadius;
