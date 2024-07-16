@@ -1,21 +1,21 @@
 package engine;
 
-class Renderer {
-    static StringBuilder getFrame() {
-        StringBuilder frame = new StringBuilder();
+import java.util.ArrayList;
 
-        for (int y = 0; y < Constants.SCREEN_HEIGHT; y++) {
-            for (int x = 0; x < Constants.SCREEN_WIDTH; x++) {
-                screen.append('■');
-            }
+public class Renderer {
+    private static ArrayList<Renderable> renderables = new ArrayList<Renderable>();
+    
+    static Frame getFrame() {
+        Frame frame = new Frame();
 
-            // ends current line
-            frame.append('\n');
+        for (Renderable renderable : renderables) {
+            renderable.renderTo(frame);
         }
-
-        // removes last newline
-        frame.setLength(frame.length() - 1);
         
         return frame;
+    }
+
+    public static void addRenderable(Renderable renderable) {
+        renderables.add(renderable);
     }
 }

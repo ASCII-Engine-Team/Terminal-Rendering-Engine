@@ -7,6 +7,8 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledFuture;
 
+import java.util.Arrays;
+
 class Run {
     private static boolean debug;
     
@@ -16,11 +18,23 @@ class Run {
         final Runnable makeFrame; 
         if (!debug) {
             makeFrame = () -> {
-                System.out.print(Renderer.getFrame());
+                try {
+                    System.out.print(Renderer.getFrame());
+                    Game.update();
+                } catch (RuntimeException e) {
+                    e.printStackTrace();
+                    System.exit(1);
+                }
             };
         } else {
             makeFrame = () -> {
-                Renderer.getFrame();
+                try {
+                    Renderer.getFrame();
+                    Game.update();
+                } catch (RuntimeException e) {
+                    e.printStackTrace();
+                    System.exit(1);
+                }
             };
         }
 
