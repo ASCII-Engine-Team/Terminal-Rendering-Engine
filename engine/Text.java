@@ -111,7 +111,11 @@ public class Text implements Renderable {
         for (int y = startY; true; y++) {
             for (int x = startX; x < startX + maxWidth; x++) {
                 if (i >= content.length()) return;
-                frame.setChixelAt(x, y, content.charAt(i));
+                if (x > 0 && x < Constants.SCREEN_WIDTH) {
+                    if (y > 0 && y < Constants.SCREEN_HEIGHT) {
+                        frame.setChixelAt(x, y, content.charAt(i));
+                    }
+                }
                 i++;
             }
         }
